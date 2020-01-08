@@ -1,0 +1,10 @@
+{
+    "date": "Wed Jan 08 23:22:53 CET 2020",
+    "name": "Trello",
+    "format": "xml",
+    "description": "Trello API examples",
+    "files": ["Trello.xml"],
+    "repository": {},
+    "version": "4.0",
+    "dependencies": [{"Simplicite": "4.0"}]
+}
