@@ -13,7 +13,7 @@ import com.simplicite.util.tools.TrelloTool;
 public class TrelloAPIClientExample extends com.simplicite.util.ExternalObject {
 	private static final long serialVersionUID = 1L;
 
-	public static final String BOARD_ID = "5612e4f91b25c15e873722b8";
+	public static final String BOARD_ID = "SFldG59G";
 
 	@Override
 	public Object display(Parameters params) {
@@ -22,20 +22,33 @@ public class TrelloAPIClientExample extends com.simplicite.util.ExternalObject {
 
 			TrelloTool tt = new TrelloTool(getGrant());
 			JSONObject b = tt.getBoard(BOARD_ID, null);
-			//html.append("<pre style=\"height: 300px;\">" + b.toString(2) + "</pre>");
+			//html.append("<!--\n" + b.toString(2) + "\n -->");
 
 			JSONArray ls = tt.getBoardLists(BOARD_ID, null);
-			//html.append("<pre style=\"height: 300px;\">" + ls.toString(2) + "</pre>");
+			//html.append("<!--\n" + ls.toString(2) + "\n -->");
 
-			html.append("<div>BOARD ID: " + b.getString("id") + "</div>");
-			html.append("<div>BOARD NAME: " + b.getString("name") + "</div>");
-			html.append("<div>BOARD SHORT URL: " + b.getString("shortUrl") + "</div>");
-			html.append("<div>BOARD LISTS: </div><ul>");
+			html.append("<h1> " + b.getString("name") + " / " + b.getString("shortUrl") + " (" + b.getString("id") + ")</h1>");
+			html.append("<ul>");
 			for (int i = 0; i < ls.length(); i++)
 			{
 				JSONObject l = ls.getJSONObject(i);
-				html.append("<li>LIST ID: " + l.getString("id") + "</li>");
-				html.append("<li>LIST NAME: " + l.getString("name") + "</li>");
+				html.append("<li>");
+				html.append("<h3>" + l.getString("name") + " (" + l.getString("id") + ")</h3>");
+				
+				JSONArray cs = tt.getListCards(l.getString("id"), null);
+				//html.append("<!--\n" + cs.toString(2) + "\n -->");
+
+				html.append("<ul>");
+				for (int j = 0; j < cs.length(); j++)
+				{
+					JSONObject c = cs.getJSONObject(j);
+					html.append("<li>" + c.getString("name") + " (" + c.getString("id") + ")");
+					html.append("<pre>" + c.getString("desc") + "</pre>");
+					html.append("</li>");
+				}
+				html.append("</ul>");
+				
+				html.append("</li>");
 			}
 			html.append("</ul>");
 
