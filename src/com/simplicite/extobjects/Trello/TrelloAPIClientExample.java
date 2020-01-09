@@ -27,7 +27,7 @@ public class TrelloAPIClientExample extends com.simplicite.util.ExternalObject {
 			JSONArray ls = tt.getBoardLists(BOARD_ID, null);
 			//html.append("<!--\n" + ls.toString(2) + "\n -->");
 
-			html.append("<h1> yyyy " + b.getString("name") + " / " + b.getString("shortUrl") + " (" + b.getString("id") + ")</h1>");
+			html.append("<h1> " + b.getString("name") + " / " + b.getString("shortUrl") + " (" + b.getString("id") + ")</h1>");
 			html.append("<ul>");
 			for (int i = 0; i < ls.length(); i++)
 			{
