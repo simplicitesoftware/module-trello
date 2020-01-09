@@ -27,14 +27,14 @@ public class TrelloAPIClientExample extends com.simplicite.util.ExternalObject {
 			JSONArray ls = tt.getBoardLists(BOARD_ID, null);
 			//html.append("<!--\n" + ls.toString(2) + "\n -->");
 
-			html.append("<h1> xxxx " + b.getString("name") + " / " + b.getString("shortUrl") + " (" + b.getString("id") + ")</h1>");
+			html.append("<h1> yyyy " + b.getString("name") + " / " + b.getString("shortUrl") + " (" + b.getString("id") + ")</h1>");
 			html.append("<ul>");
 			for (int i = 0; i < ls.length(); i++)
 			{
 				JSONObject l = ls.getJSONObject(i);
 				html.append("<li>");
 				html.append("<h3>" + l.getString("name") + " (" + l.getString("id") + ")</h3>");
-				
+
 				JSONArray cs = tt.getListCards(l.getString("id"), null);
 				//html.append("<!--\n" + cs.toString(2) + "\n -->");
 
@@ -47,7 +47,7 @@ public class TrelloAPIClientExample extends com.simplicite.util.ExternalObject {
 					html.append("</li>");
 				}
 				html.append("</ul>");
-				
+
 				html.append("</li>");
 			}
 			html.append("</ul>");
