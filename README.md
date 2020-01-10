@@ -11,7 +11,10 @@
 `Trello` module definition
 ==========================
 
-Trello API examples
+Trello integration examples:
+
+- A business object that synchronizes with Trello cards (using a webhook for incoming updates from Trello)
+- A Trello client external oject
 
 `TrelloCardExample` business object definition
 ----------------------------------------------
@@ -22,9 +25,9 @@ Trello example object 1
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `trelloCardExName`                                           | char(100)                                | yes*     | yes       |          | -                                                                                |
-| `trelloCardExDescription`                                    | text(1000000)                            |          | yes       |          | -                                                                                |
-| `trelloCardExCardID`                                         | char(50)                                 |          |           |          | Trello card ID                                                                   |
+| `trelloCardExName`                                           | char(100)                                | yes*     | yes       |          | Card name                                                                        |
+| `trelloCardExDescription`                                    | text(1000000)                            |          | yes       |          | Card description                                                                 |
+| `trelloCardExCardID`                                         | char(50)                                 |          |           |          | Card ID                                                                          |
 
 ### Custom actions
 

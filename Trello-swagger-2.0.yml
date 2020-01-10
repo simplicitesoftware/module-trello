@@ -252,17 +252,17 @@ paths:
         required: false
       - in: query
         name: trelloCardExName
-        description: Search filter for Name
+        description: Search filter for Card name
         type: string
         required: false
       - in: query
         name: trelloCardExDescription
-        description: Search filter for Description
+        description: Search filter for Card description
         type: string
         required: false
       - in: query
         name: trelloCardExCardID
-        description: Search filter for Trello card ID
+        description: Search filter for Card ID
         type: string
         required: false
       tags:
@@ -367,16 +367,16 @@ definitions:
     type: object
     properties:
       trelloCardExCardID:
-        description: Trello card ID
+        description: Card ID
         type: string
       row_id:
         description: Unique technical row ID
         type: string
       trelloCardExName:
-        description: Name
+        description: Card name
         type: string
       trelloCardExDescription:
-        description: Description
+        description: Card description
         type: string
   ArrayOfTrelloCardExample:
     type: array

@@ -8,8 +8,11 @@
 		<mdl_version>4.0</mdl_version>
 		<mdl_prefix/>
 		<mdl_url><![CDATA[https://www.simplicite.io/resources/modules/trello-examples-4.0.xml]]></mdl_url>
-		<mdl_lastupd>2020-01-08 23:22:53</mdl_lastupd>
-		<mdl_comment><![CDATA[Trello API examples]]></mdl_comment>
+		<mdl_lastupd>2020-01-11 00:07:51</mdl_lastupd>
+		<mdl_comment><![CDATA[Trello integration examples:
+
+- A business object that synchronizes with Trello cards (using a webhook for incoming updates from Trello)
+- A Trello client external oject]]></mdl_comment>
 	</data>
 </object>
 <object>
@@ -119,7 +122,7 @@
 		<fld_rendering/>
 		<fld_calc/>
 		<fld_objlist/>
-		<fld_comment><![CDATA[Trello card ID]]></fld_comment>
+		<fld_comment><![CDATA[Card ID]]></fld_comment>
 		<fld_classification/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -155,7 +158,7 @@
 		<fld_rendering>MD</fld_rendering>
 		<fld_calc/>
 		<fld_objlist/>
-		<fld_comment/>
+		<fld_comment><![CDATA[Card description]]></fld_comment>
 		<fld_classification/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -191,7 +194,7 @@
 		<fld_rendering/>
 		<fld_calc/>
 		<fld_objlist/>
-		<fld_comment/>
+		<fld_comment><![CDATA[Card name]]></fld_comment>
 		<fld_classification/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
