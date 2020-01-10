@@ -37,7 +37,7 @@ public class TrelloWebhook extends com.simplicite.webapp.services.RESTServiceExt
 			ObjectDB obj = Grant.getSystemAdmin().getObject("webhook_" + o, o);
 			BusinessObjectTool objt = new BusinessObjectTool(obj);
 			obj.resetFilters();
-			obj.getField("trelloCardExCardID").setFilter(card.getString("id"));
+			obj.getField("trelloCardExCardId").setFilter(card.getString("id"));
 			List<String[]> rows = objt.search();
 			if (rows.size() == 1) {
 				obj.setValues(rows.get(0), true);

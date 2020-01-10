@@ -73,7 +73,7 @@ components:
     TrelloCardExample:
       type: object
       properties:
-        trelloCardExCardID:
+        trelloCardExCardId:
           description: Card ID
           type: string
         row_id:
@@ -416,7 +416,7 @@ paths:
       - schema:
           type: string
         in: query
-        name: trelloCardExCardID
+        name: trelloCardExCardId
         description: Search filter for Card ID
         required: false
       tags:

@@ -261,7 +261,7 @@ paths:
         type: string
         required: false
       - in: query
-        name: trelloCardExCardID
+        name: trelloCardExCardId
         description: Search filter for Card ID
         type: string
         required: false
@@ -366,7 +366,7 @@ definitions:
   TrelloCardExample:
     type: object
     properties:
-      trelloCardExCardID:
+      trelloCardExCardId:
         description: Card ID
         type: string
       row_id:

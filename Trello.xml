@@ -91,7 +91,7 @@
 	<name>Field</name>
 	<action>upsert</action>
 	<data>
-		<fld_name>trelloCardExCardID</fld_name>
+		<fld_name>trelloCardExCardId</fld_name>
 		<fld_dbname>cardex_cardid</fld_dbname>
 		<fld_visible>2</fld_visible>
 		<fld_updatable>0</fld_updatable>
@@ -221,7 +221,7 @@
 		<ofa_ui><![CDATA[<div>
   <div class="field" data-field="trelloCardExName"></div>
   <div class="field" data-field="trelloCardExDescription"></div>
-  <div class="field" data-field="trelloCardExCardID"></div>
+  <div class="field" data-field="trelloCardExCardId"></div>
 </div>
 ]]></ofa_ui>
 		<ofa_icon/>
@@ -405,7 +405,7 @@ curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens
 	</data>
 	<data>
 		<obf_object_id.obo_name>TrelloCardExample</obf_object_id.obo_name>
-		<obf_field_id.fld_name>trelloCardExCardID</obf_field_id.fld_name>
+		<obf_field_id.fld_name>trelloCardExCardId</obf_field_id.fld_name>
 		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>30</obf_order>
 		<obf_group_by/>
@@ -596,7 +596,7 @@ curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens
 	<action>upsert</action>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>trelloCardExCardID</tsl_id.fld_name>
+		<tsl_id.fld_name>trelloCardExCardId</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Card ID</tsl_value>
 		<tsl_simplehelp/>
@@ -632,7 +632,7 @@ curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>trelloCardExCardID</tsl_id.fld_name>
+		<tsl_id.fld_name>trelloCardExCardId</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>ID carte</tsl_value>
 		<tsl_simplehelp/>

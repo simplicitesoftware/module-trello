@@ -27,7 +27,7 @@ Trello example object 1
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
 | `trelloCardExName`                                           | char(100)                                | yes*     | yes       |          | Card name                                                                        |
 | `trelloCardExDescription`                                    | text(1000000)                            |          | yes       |          | Card description                                                                 |
-| `trelloCardExCardID`                                         | char(50)                                 |          |           |          | Card ID                                                                          |
+| `trelloCardExCardId`                                         | char(50)                                 |          |           |          | Card ID                                                                          |
 
 ### Custom actions
 

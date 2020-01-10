@@ -36,7 +36,7 @@ public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 				.put("desc", getFieldValue("trelloCardExDescription"));
 			card = tt.addCard(settings.getString("defaultListId"), card);
 			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
-			setFieldValue("trelloCardExCardID", card.getString("id"));
+			setFieldValue("trelloCardExCardId", card.getString("id"));
 
 			return Message.formatSimpleInfo("Trello card created");
 		} catch (APIException e) { // Prevents creation if card creation fails
