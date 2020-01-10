@@ -13,6 +13,23 @@
 
 Trello API examples
 
+`TrelloExample1` business object definition
+-------------------------------------------
+
+Trello example object 1
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| `trelloEx1Name`                                              | char(100)                                | yes*     | yes       |          | -                                                                                |
+| `trelloEx1Description`                                       | text(1000000)                            |          | yes       |          | -                                                                                |
+| `trelloEx1CardId`                                            | char(50)                                 |          |           |          | Trello card ID                                                                   |
+
+### Custom actions
+
+No custom action
+
 `TrelloAPIClientExample` external object definition
 ---------------------------------------------------
 

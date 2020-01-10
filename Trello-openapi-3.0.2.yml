@@ -28,6 +28,10 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
+    ArrayOfTrelloExample1:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrelloExample1'
     PublicationResult:
       type: object
       properties:
@@ -81,6 +85,21 @@ components:
           type: integer
           enum:
           - 403
+    TrelloExample1:
+      type: object
+      properties:
+        trelloEx1CardId:
+          description: Trello card ID
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        trelloEx1Name:
+          description: Name
+          type: string
+        trelloEx1Description:
+          description: Description
+          type: string
   securitySchemes:
     basicAuth:
       scheme: basic
@@ -141,6 +160,267 @@ paths:
                 $ref: '#/components/schemas/Error401'
       tags:
       - session
+  /rest/TrelloExample1/{row_id}:
+    post:
+      summary: Create a new TrelloExample1business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrelloExample1'
+      operationId: obj-trelloexample1-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrelloExample1'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - TrelloExample1
+    get:
+      summary: Get a TrelloExample1 business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-trelloexample1-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrelloExample1'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - TrelloExample1
+    delete:
+      summary: Delete a TrelloExample1 business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-trelloexample1-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - TrelloExample1
+    put:
+      summary: Update a TrelloExample1business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrelloExample1'
+      operationId: obj-trelloexample1-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrelloExample1'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - TrelloExample1
+  /rest/TrelloExample1:
+    get:
+      summary: Search TrelloExample1 business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-trelloexample1-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfTrelloExample1'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: trelloEx1Name
+        description: Search filter for Name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: trelloEx1Description
+        description: Search filter for Description
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: trelloEx1CardId
+        description: Search filter for Trello card ID
+        required: false
+      tags:
+      - TrelloExample1
   /:
     get:
       summary: Get user session information
@@ -178,3 +458,6 @@ info:
   description: API for module Trello
   title: Trello
   version: '4.0'
+tags:
+- name: TrelloExample1
+  description: Trello example 1
