@@ -14,7 +14,7 @@ public class TrelloExample1 extends com.simplicite.util.ObjectDB {
 	private static final long serialVersionUID = 1L;
 
 	private TrelloTool tt = null;
-	private JSONObject settings = null;;
+	private JSONObject settings = null;
 
 	@Override
 	public void postLoad() {
@@ -62,8 +62,7 @@ public class TrelloExample1 extends com.simplicite.util.ObjectDB {
 	public String preDelete() {
 		try {
 			tt.deleteCard(getFieldValue("trelloEx1CardId"));
-
-			return Message.formatSimpleInfo("Trello card deleted");
+			return null;
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "postLoad", null, e, getGrant());
 			return Message.formatSimpleError("Card deletion error: " + e.getMessage());
