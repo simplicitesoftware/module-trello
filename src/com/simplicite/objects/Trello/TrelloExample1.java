@@ -1,6 +1,5 @@
 package com.simplicite.objects.Trello;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.simplicite.util.AppLog;
@@ -16,7 +15,7 @@ public class TrelloExample1 extends com.simplicite.util.ObjectDB {
 
 	private TrelloTool tt = null;
 	private JSONObject settings = null;;
-	
+
 	@Override
 	public void postLoad() {
 		tt = new TrelloTool(getGrant());
@@ -27,25 +26,32 @@ public class TrelloExample1 extends com.simplicite.util.ObjectDB {
 	public String preCreate() {
 		JSONObject card = null;
 		try {
-			card = tt.addCard(settings.getString("defaultListId"), getFieldValue("trelloEx1Name"), getFieldValue("trelloEx1Description"), null);
-			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
+			card = new JSONObject()
+				.put("name", getFieldValue("trelloEx1Name"))
+				.put("desc", getFieldValue("trelloEx1Description"));
+			card = tt.addCard(settings.getString("defaultListId"), card);
+			AppLog.debug(getClass(), "preCreate", card.toString(2), getGrant());
 			setFieldValue("trelloEx1CardId", card.getString("id"));
+
 			return Message.formatSimpleInfo("Trello card created");
 		} catch (APIException e) { // Prevents creation if card creation fails
 			AppLog.error(getClass(), "preCreate", null, e, getGrant());
 			return Message.formatSimpleError("Card creation error: " + e.getMessage());
 		}
 	}
-	
+
 	@Override
 	public String preUpdate() {
 		try {
-			String id = getFieldValue("trelloEx1CardId"); 
-			JSONObject card = tt.getCard(id, null);
+			String id = getFieldValue("trelloEx1CardId");
+			JSONObject card = tt.getCard(id);
+
 			card.put("name", getFieldValue("trelloEx1Name"));
 			card.put("desc", getFieldValue("trelloEx1Description"));
 			tt.updateCard(id, card);
-			return null;
+			AppLog.debug(getClass(), "preUpdate", card.toString(2), getGrant());
+
+			return Message.formatSimpleInfo("Trello card updated");
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "postUpdate", null, e, getGrant());
 			return Message.formatSimpleError("Card update error: " + e.getMessage());
@@ -56,7 +62,8 @@ public class TrelloExample1 extends com.simplicite.util.ObjectDB {
 	public String preDelete() {
 		try {
 			tt.deleteCard(getFieldValue("trelloEx1CardId"));
-			return null;
+
+			return Message.formatSimpleInfo("Trello card deleted");
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "postLoad", null, e, getGrant());
 			return Message.formatSimpleError("Card deletion error: " + e.getMessage());
