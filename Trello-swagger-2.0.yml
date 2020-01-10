@@ -49,18 +49,18 @@ paths:
           description: Unauthorized
       tags:
       - session
-  /rest/TrelloExample1/{row_id}:
+  /rest/TrelloCardExample/{row_id}:
     post:
-      summary: Create a new TrelloExample1business object record
+      summary: Create a new TrelloCardExamplebusiness object record
       security:
       - bearerAuth: []
       produces:
       - application/json
-      operationId: obj-trelloexample1-create
+      operationId: obj-trellocardexample-create
       responses:
         '200':
           schema:
-            $ref: '#/definitions/TrelloExample1'
+            $ref: '#/definitions/TrelloCardExample'
           description: Success in creating a new business object record
         '400':
           schema:
@@ -81,24 +81,24 @@ paths:
         type: string
         required: true
       - schema:
-          $ref: '#/definitions/TrelloExample1'
+          $ref: '#/definitions/TrelloCardExample'
         in: body
         name: body
       tags:
-      - TrelloExample1
+      - TrelloCardExample
       consumes:
       - application/json
     get:
-      summary: Get a TrelloExample1 business object record
+      summary: Get a TrelloCardExample business object record
       security:
       - bearerAuth: []
       produces:
       - application/json
-      operationId: obj-trelloexample1-get
+      operationId: obj-trellocardexample-get
       responses:
         '200':
           schema:
-            $ref: '#/definitions/TrelloExample1'
+            $ref: '#/definitions/TrelloCardExample'
           description: Success in getting a single business object record
         '401':
           schema:
@@ -134,14 +134,14 @@ paths:
         type: boolean
         required: false
       tags:
-      - TrelloExample1
+      - TrelloCardExample
     delete:
-      summary: Delete a TrelloExample1 business object record
+      summary: Delete a TrelloCardExample business object record
       security:
       - bearerAuth: []
       produces:
       - application/json
-      operationId: obj-trelloexample1-delete
+      operationId: obj-trellocardexample-delete
       responses:
         '200':
           description: Success in deleting a business object record
@@ -168,18 +168,18 @@ paths:
         type: string
         required: true
       tags:
-      - TrelloExample1
+      - TrelloCardExample
     put:
-      summary: Update a TrelloExample1business object record
+      summary: Update a TrelloCardExamplebusiness object record
       security:
       - bearerAuth: []
       produces:
       - application/json
-      operationId: obj-trelloexample1-update
+      operationId: obj-trellocardexample-update
       responses:
         '200':
           schema:
-            $ref: '#/definitions/TrelloExample1'
+            $ref: '#/definitions/TrelloCardExample'
           description: Success in updating a business object record
         '400':
           schema:
@@ -204,26 +204,26 @@ paths:
         type: string
         required: true
       - schema:
-          $ref: '#/definitions/TrelloExample1'
+          $ref: '#/definitions/TrelloCardExample'
         in: body
         name: body
       tags:
-      - TrelloExample1
+      - TrelloCardExample
       consumes:
       - application/json
-  /rest/TrelloExample1:
+  /rest/TrelloCardExample:
     get:
-      summary: Search TrelloExample1 business object records or get contextualized
+      summary: Search TrelloCardExample business object records or get contextualized
         metadata
       security:
       - bearerAuth: []
       produces:
       - application/json
-      operationId: obj-trelloexample1-search
+      operationId: obj-trellocardexample-search
       responses:
         '200':
           schema:
-            $ref: '#/definitions/ArrayOfTrelloExample1'
+            $ref: '#/definitions/ArrayOfTrelloCardExample'
           description: Success in searching business object records (or in getting
             contextualized business object metadata, documentation, ...)
         '401':
@@ -251,22 +251,22 @@ paths:
         type: boolean
         required: false
       - in: query
-        name: trelloEx1Name
+        name: trelloCardExName
         description: Search filter for Name
         type: string
         required: false
       - in: query
-        name: trelloEx1Description
+        name: trelloCardExDescription
         description: Search filter for Description
         type: string
         required: false
       - in: query
-        name: trelloEx1CardId
+        name: trelloCardExCardID
         description: Search filter for Trello card ID
         type: string
         required: false
       tags:
-      - TrelloExample1
+      - TrelloCardExample
   /:
     get:
       summary: Get user session information
@@ -321,10 +321,6 @@ definitions:
       item:
         description: Object item with lists of linked objects' items
         type: object
-  ArrayOfTrelloExample1:
-    type: array
-    items:
-      $ref: '#/definitions/TrelloExample1'
   PublicationResult:
     type: object
     properties:
@@ -367,6 +363,25 @@ definitions:
         type: integer
         enum:
         - 500
+  TrelloCardExample:
+    type: object
+    properties:
+      trelloCardExCardID:
+        description: Trello card ID
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      trelloCardExName:
+        description: Name
+        type: string
+      trelloCardExDescription:
+        description: Description
+        type: string
+  ArrayOfTrelloCardExample:
+    type: array
+    items:
+      $ref: '#/definitions/TrelloCardExample'
   Error403:
     type: object
     properties:
@@ -378,21 +393,6 @@ definitions:
         type: integer
         enum:
         - 403
-  TrelloExample1:
-    type: object
-    properties:
-      trelloEx1CardId:
-        description: Trello card ID
-        type: string
-      row_id:
-        description: Unique technical row ID
-        type: string
-      trelloEx1Name:
-        description: Name
-        type: string
-      trelloEx1Description:
-        description: Description
-        type: string
 swagger: '2.0'
 info:
   license:
@@ -406,5 +406,5 @@ info:
   title: Trello
   version: '4.0'
 tags:
-- name: TrelloExample1
-  description: Trello example 1
+- name: TrelloCardExample
+  description: Trello card example

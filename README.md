@@ -13,8 +13,8 @@
 
 Trello API examples
 
-`TrelloExample1` business object definition
--------------------------------------------
+`TrelloCardExample` business object definition
+----------------------------------------------
 
 Trello example object 1
 
@@ -22,9 +22,9 @@ Trello example object 1
 
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
-| `trelloEx1Name`                                              | char(100)                                | yes*     | yes       |          | -                                                                                |
-| `trelloEx1Description`                                       | text(1000000)                            |          | yes       |          | -                                                                                |
-| `trelloEx1CardId`                                            | char(50)                                 |          |           |          | Trello card ID                                                                   |
+| `trelloCardExName`                                           | char(100)                                | yes*     | yes       |          | -                                                                                |
+| `trelloCardExDescription`                                    | text(1000000)                            |          | yes       |          | -                                                                                |
+| `trelloCardExCardID`                                         | char(50)                                 |          |           |          | Trello card ID                                                                   |
 
 ### Custom actions
 
@@ -34,5 +34,20 @@ No custom action
 ---------------------------------------------------
 
 Trello API client example
+
+
+`TrelloWebhook` external object definition
+------------------------------------------
+
+Trello webhook:
+
+```
+curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens/<token>/webhooks/ -d '{
+  "key": "<key>",
+  "callbackURL": "https://<base URL>/ext/TrelloWebhook",
+  "idModel":"<board ID>",
+  "description": "Demo webhook"
+}'
+```
 
 

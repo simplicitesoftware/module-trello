@@ -16,6 +16,16 @@
 	<name>SystemParam</name>
 	<action>upsert</action>
 	<data>
+		<sys_code>TRELLO_CARDEX_SETTINGS</sys_code>
+		<sys_value><![CDATA[{
+	"boardId": "_your_board_id_",
+	"defaultListId": "_your_default_board_list_id_"
+}]]></sys_value>
+		<sys_type>PRV</sys_type>
+		<sys_desc><![CDATA[Trello example object 1 settings]]></sys_desc>
+		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
+	</data>
+	<data>
 		<sys_code>TRELLO_CREDENTIALS</sys_code>
 		<sys_value><![CDATA[{
 	"key": "_your_trello_api_key_",
@@ -24,16 +34,6 @@
 }]]></sys_value>
 		<sys_type>PRV</sys_type>
 		<sys_desc><![CDATA[Trello API credentials]]></sys_desc>
-		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
-	</data>
-	<data>
-		<sys_code>TRELLO_EX1_SETTINGS</sys_code>
-		<sys_value><![CDATA[{
-	"boardId": "_your_board_id_",
-	"defaultListId": "_your_default_board_list_id_"
-}]]></sys_value>
-		<sys_type>PRV</sys_type>
-		<sys_desc><![CDATA[Trello example object 1 settings]]></sys_desc>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 </object>
@@ -88,8 +88,8 @@
 	<name>Field</name>
 	<action>upsert</action>
 	<data>
-		<fld_name>trelloEx1CardId</fld_name>
-		<fld_dbname>ex1_card_id</fld_dbname>
+		<fld_name>trelloCardExCardID</fld_name>
+		<fld_dbname>cardex_cardid</fld_dbname>
 		<fld_visible>2</fld_visible>
 		<fld_updatable>0</fld_updatable>
 		<fld_required>0</fld_required>
@@ -124,8 +124,8 @@
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
-		<fld_name>trelloEx1Description</fld_name>
-		<fld_dbname>ex1_description</fld_dbname>
+		<fld_name>trelloCardExDescription</fld_name>
+		<fld_dbname>cardex_description</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>1</fld_updatable>
 		<fld_required>0</fld_required>
@@ -160,8 +160,8 @@
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
-		<fld_name>trelloEx1Name</fld_name>
-		<fld_dbname>ex1_name</fld_dbname>
+		<fld_name>trelloCardExName</fld_name>
+		<fld_dbname>cardex_name</fld_dbname>
 		<fld_visible>3</fld_visible>
 		<fld_updatable>1</fld_updatable>
 		<fld_required>1</fld_required>
@@ -216,9 +216,9 @@
 		<ofa_position>1</ofa_position>
 		<ofa_title>0</ofa_title>
 		<ofa_ui><![CDATA[<div>
-  <div class="field" data-field="trelloEx1Name"></div>
-  <div class="field" data-field="trelloEx1Description"></div>
-  <div class="field" data-field="trelloEx1CardId"></div>
+  <div class="field" data-field="trelloCardExName"></div>
+  <div class="field" data-field="trelloCardExDescription"></div>
+  <div class="field" data-field="trelloCardExCardID"></div>
 </div>
 ]]></ofa_ui>
 		<ofa_icon/>
@@ -254,15 +254,35 @@
 		<obe_icon>trello</obe_icon>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
+	<data>
+		<obe_name>TrelloWebhook</obe_name>
+		<obe_type>E</obe_type>
+		<obe_url/>
+		<obe_comment><![CDATA[Trello webhook:
+
+```
+curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens/<token>/webhooks/ -d '{
+  "key": "<key>",
+  "callbackURL": "https://<base URL>/ext/TrelloWebhook",
+  "idModel":"<board ID>",
+  "description": "Demo webhook"
+}'
+```]]></obe_comment>
+		<obe_help/>
+		<obe_class/>
+		<obe_script_id>src/com/simplicite/extobjects/Trello/TrelloWebhook.java</obe_script_id>
+		<obe_icon>trello</obe_icon>
+		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
+	</data>
 </object>
 <object>
 	<name>ObjectInternal</name>
 	<action>upsert</action>
 	<data>
-		<obo_name>TrelloExample1</obo_name>
-		<obo_dbtable>trello_example1</obo_dbtable>
+		<obo_name>TrelloCardExample</obo_name>
+		<obo_dbtable>trello_cardexemple</obo_dbtable>
 		<obo_class/>
-		<obo_script_id>src/com/simplicite/objects/Trello/TrelloExample1.java</obo_script_id>
+		<obo_script_id>src/com/simplicite/objects/Trello/TrelloCardExample.java</obo_script_id>
 		<obo_usets>1</obo_usets>
 		<obo_nosearch>1</obo_nosearch>
 		<obo_comment><![CDATA[Trello example object 1]]></obo_comment>
@@ -323,8 +343,8 @@
 	<name>ObjectFieldSystem</name>
 	<action>upsert</action>
 	<data>
-		<obf_object_id.obo_name>TrelloExample1</obf_object_id.obo_name>
-		<obf_field_id.fld_name>trelloEx1Name</obf_field_id.fld_name>
+		<obf_object_id.obo_name>TrelloCardExample</obf_object_id.obo_name>
+		<obf_field_id.fld_name>trelloCardExName</obf_field_id.fld_name>
 		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>10</obf_order>
 		<obf_group_by/>
@@ -352,8 +372,8 @@
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
-		<obf_object_id.obo_name>TrelloExample1</obf_object_id.obo_name>
-		<obf_field_id.fld_name>trelloEx1Description</obf_field_id.fld_name>
+		<obf_object_id.obo_name>TrelloCardExample</obf_object_id.obo_name>
+		<obf_field_id.fld_name>trelloCardExDescription</obf_field_id.fld_name>
 		<obf_field_id.fld_type>13</obf_field_id.fld_type>
 		<obf_order>20</obf_order>
 		<obf_group_by/>
@@ -381,8 +401,8 @@
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
-		<obf_object_id.obo_name>TrelloExample1</obf_object_id.obo_name>
-		<obf_field_id.fld_name>trelloEx1CardId</obf_field_id.fld_name>
+		<obf_object_id.obo_name>TrelloCardExample</obf_object_id.obo_name>
+		<obf_field_id.fld_name>trelloCardExCardID</obf_field_id.fld_name>
 		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>30</obf_order>
 		<obf_group_by/>
@@ -432,10 +452,19 @@
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
-		<fct_name>TrelloExample1-CUD</fct_name>
+		<fct_name>TrelloCardExample-CUD</fct_name>
 		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>TrelloExample1</fct_object_id.obj_name>
+		<fct_object_id.obj_name>TrelloCardExample</fct_object_id.obj_name>
 		<fct_function>CMS</fct_function>
+		<fct_action_id.act_name/>
+		<fct_view_id.viw_name/>
+		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fct_name>TrelloWebhook-E</fct_name>
+		<fct_object_id.obj_type>E</fct_object_id.obj_type>
+		<fct_object_id.obj_name>TrelloWebhook</fct_object_id.obj_name>
+		<fct_function>L</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
@@ -444,6 +473,16 @@
 <object>
 	<name>Grant</name>
 	<action>upsert</action>
+	<data>
+		<grt_group_id.grp_name>PUBLIC</grt_group_id.grp_name>
+		<grt_function_id.fct_name>TrelloWebhook-E</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>E</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>TrelloWebhook</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_function_id.fct_function>L</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
+	</data>
 	<data>
 		<grt_group_id.grp_name>TRELLO_USER</grt_group_id.grp_name>
 		<grt_function_id.fct_name>TrelloAPIClientExample-E</grt_function_id.fct_name>
@@ -456,21 +495,21 @@
 	</data>
 	<data>
 		<grt_group_id.grp_name>TRELLO_USER</grt_group_id.grp_name>
-		<grt_function_id.fct_name>Trello-D</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>TrelloDomain</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_name>TrelloCardExample-CUD</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>TrelloCardExample</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
+		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
 		<grt_group_id.grp_name>TRELLO_USER</grt_group_id.grp_name>
-		<grt_function_id.fct_name>TrelloExample1-CUD</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>TrelloExample1</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_name>Trello-D</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>TrelloDomain</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
+		<grt_function_id.fct_function>L</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -488,7 +527,7 @@
 	</data>
 	<data>
 		<map_domain_id.obd_name>TrelloDomain</map_domain_id.obd_name>
-		<map_object_id.obj_name>TrelloExample1</map_object_id.obj_name>
+		<map_object_id.obj_name>TrelloCardExample</map_object_id.obj_name>
 		<map_process_id.pcs_name/>
 		<map_order>82010</map_order>
 		<map_ext>0</map_ext>
@@ -554,7 +593,7 @@
 	<action>upsert</action>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>trelloEx1CardId</tsl_id.fld_name>
+		<tsl_id.fld_name>trelloCardExCardID</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Card ID</tsl_value>
 		<tsl_simplehelp/>
@@ -566,7 +605,7 @@
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>trelloEx1Description</tsl_id.fld_name>
+		<tsl_id.fld_name>trelloCardExDescription</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Description</tsl_value>
 		<tsl_simplehelp/>
@@ -578,7 +617,7 @@
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>trelloEx1Name</tsl_id.fld_name>
+		<tsl_id.fld_name>trelloCardExName</tsl_id.fld_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Name</tsl_value>
 		<tsl_simplehelp/>
@@ -590,7 +629,7 @@
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>trelloEx1CardId</tsl_id.fld_name>
+		<tsl_id.fld_name>trelloCardExCardID</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>ID carte</tsl_value>
 		<tsl_simplehelp/>
@@ -602,9 +641,9 @@
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>trelloEx1Description</tsl_id.fld_name>
+		<tsl_id.fld_name>trelloCardExDescription</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>trello description</tsl_value>
+		<tsl_value>Description</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -614,9 +653,9 @@
 	</data>
 	<data>
 		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>trelloEx1Name</tsl_id.fld_name>
+		<tsl_id.fld_name>trelloCardExName</tsl_id.fld_name>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>trello name</tsl_value>
+		<tsl_value>Nom</tsl_value>
 		<tsl_simplehelp/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
@@ -668,17 +707,17 @@
 	<action>upsert</action>
 	<data>
 		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>TrelloExample1</tsl_id.obo_name>
+		<tsl_id.obo_name>TrelloCardExample</tsl_id.obo_name>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Trello example 1</tsl_value>
+		<tsl_value>Trello card example</tsl_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
 		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>TrelloExample1</tsl_id.obo_name>
+		<tsl_id.obo_name>TrelloCardExample</tsl_id.obo_name>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Exemple Trello 1</tsl_value>
+		<tsl_value>Exemple carte Trello</tsl_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -686,6 +725,14 @@
 <object>
 	<name>TranslateExternal</name>
 	<action>upsert</action>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obe_name>TrelloWebhook</tsl_id.obe_name>
+		<tsl_lang>ANY</tsl_lang>
+		<tsl_value>Trello webhook</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
+	</data>
 	<data>
 		<tsl_typeObject>O</tsl_typeObject>
 		<tsl_id.obe_name>TrelloAPIClientExample</tsl_id.obe_name>

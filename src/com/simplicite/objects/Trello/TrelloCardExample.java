@@ -8,9 +8,9 @@ import com.simplicite.util.exceptions.APIException;
 import com.simplicite.util.tools.TrelloTool;
 
 /**
- * Trello business object example 1
+ * Trello card business object example
  */
-public class TrelloExample1 extends com.simplicite.util.ObjectDB {
+public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 	private static final long serialVersionUID = 1L;
 
 	private TrelloTool tt = null;
@@ -18,20 +18,25 @@ public class TrelloExample1 extends com.simplicite.util.ObjectDB {
 
 	@Override
 	public void postLoad() {
-		tt = new TrelloTool(getGrant());
-		settings = getGrant().getJSONObjectParameter("TRELLO_EX1_SETTINGS");
+		AppLog.info(getClass(), "postLoad", "Instance: " + getInstanceName(), getGrant());
+		if (!getInstanceName().startsWith("webhook_")) {
+			tt = new TrelloTool(getGrant());
+			AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
+			settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
+			AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
+		}
 	}
 
 	@Override
 	public String preCreate() {
-		JSONObject card = null;
+		if (tt == null) return null;
 		try {
-			card = new JSONObject()
-				.put("name", getFieldValue("trelloEx1Name"))
-				.put("desc", getFieldValue("trelloEx1Description"));
+			JSONObject card = new JSONObject()
+				.put("name", getFieldValue("trelloCardExName"))
+				.put("desc", getFieldValue("trelloCardExDescription"));
 			card = tt.addCard(settings.getString("defaultListId"), card);
-			AppLog.debug(getClass(), "preCreate", card.toString(2), getGrant());
-			setFieldValue("trelloEx1CardId", card.getString("id"));
+			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
+			setFieldValue("trelloCardExCardID", card.getString("id"));
 
 			return Message.formatSimpleInfo("Trello card created");
 		} catch (APIException e) { // Prevents creation if card creation fails
@@ -42,14 +47,15 @@ public class TrelloExample1 extends com.simplicite.util.ObjectDB {
 
 	@Override
 	public String preUpdate() {
+		if (tt == null) return null;
 		try {
-			String id = getFieldValue("trelloEx1CardId");
+			String id = getFieldValue("trelloCardExCardId");
 			JSONObject card = tt.getCard(id);
 
-			card.put("name", getFieldValue("trelloEx1Name"));
-			card.put("desc", getFieldValue("trelloEx1Description"));
+			card.put("name", getFieldValue("trelloCardExName"));
+			card.put("desc", getFieldValue("trelloCardExDescription"));
 			tt.updateCard(id, card);
-			AppLog.debug(getClass(), "preUpdate", card.toString(2), getGrant());
+			AppLog.info(getClass(), "preUpdate", card.toString(2), getGrant());
 
 			return Message.formatSimpleInfo("Trello card updated");
 		} catch (APIException e) { // Prevents deletion if card creation fails
@@ -60,8 +66,9 @@ public class TrelloExample1 extends com.simplicite.util.ObjectDB {
 
 	@Override
 	public String preDelete() {
+		if (tt == null) return null;
 		try {
-			tt.deleteCard(getFieldValue("trelloEx1CardId"));
+			tt.deleteCard(getFieldValue("trelloCardExCardId"));
 			return null;
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "postLoad", null, e, getGrant());

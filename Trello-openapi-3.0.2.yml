@@ -28,10 +28,6 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
-    ArrayOfTrelloExample1:
-      type: array
-      items:
-        $ref: '#/components/schemas/TrelloExample1'
     PublicationResult:
       type: object
       properties:
@@ -74,6 +70,25 @@ components:
           type: integer
           enum:
           - 500
+    TrelloCardExample:
+      type: object
+      properties:
+        trelloCardExCardID:
+          description: Trello card ID
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        trelloCardExName:
+          description: Name
+          type: string
+        trelloCardExDescription:
+          description: Description
+          type: string
+    ArrayOfTrelloCardExample:
+      type: array
+      items:
+        $ref: '#/components/schemas/TrelloCardExample'
     Error403:
       type: object
       properties:
@@ -85,21 +100,6 @@ components:
           type: integer
           enum:
           - 403
-    TrelloExample1:
-      type: object
-      properties:
-        trelloEx1CardId:
-          description: Trello card ID
-          type: string
-        row_id:
-          description: Unique technical row ID
-          type: string
-        trelloEx1Name:
-          description: Name
-          type: string
-        trelloEx1Description:
-          description: Description
-          type: string
   securitySchemes:
     basicAuth:
       scheme: basic
@@ -160,24 +160,24 @@ paths:
                 $ref: '#/components/schemas/Error401'
       tags:
       - session
-  /rest/TrelloExample1/{row_id}:
+  /rest/TrelloCardExample/{row_id}:
     post:
-      summary: Create a new TrelloExample1business object record
+      summary: Create a new TrelloCardExamplebusiness object record
       security:
       - bearerAuth: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TrelloExample1'
-      operationId: obj-trelloexample1-create
+              $ref: '#/components/schemas/TrelloCardExample'
+      operationId: obj-trellocardexample-create
       responses:
         '200':
           description: Success in creating a new business object record
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrelloExample1'
+                $ref: '#/components/schemas/TrelloCardExample'
         '400':
           description: Bad request
           content:
@@ -204,19 +204,19 @@ paths:
         description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
-      - TrelloExample1
+      - TrelloCardExample
     get:
-      summary: Get a TrelloExample1 business object record
+      summary: Get a TrelloCardExample business object record
       security:
       - bearerAuth: []
-      operationId: obj-trelloexample1-get
+      operationId: obj-trellocardexample-get
       responses:
         '200':
           description: Success in getting a single business object record
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrelloExample1'
+                $ref: '#/components/schemas/TrelloCardExample'
         '401':
           description: Unauthorized
           content:
@@ -261,12 +261,12 @@ paths:
         description: Inline objects?
         required: false
       tags:
-      - TrelloExample1
+      - TrelloCardExample
     delete:
-      summary: Delete a TrelloExample1 business object record
+      summary: Delete a TrelloCardExample business object record
       security:
       - bearerAuth: []
-      operationId: obj-trelloexample1-delete
+      operationId: obj-trellocardexample-delete
       responses:
         '200':
           description: Success in deleting a business object record
@@ -304,24 +304,24 @@ paths:
         description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
-      - TrelloExample1
+      - TrelloCardExample
     put:
-      summary: Update a TrelloExample1business object record
+      summary: Update a TrelloCardExamplebusiness object record
       security:
       - bearerAuth: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TrelloExample1'
-      operationId: obj-trelloexample1-update
+              $ref: '#/components/schemas/TrelloCardExample'
+      operationId: obj-trellocardexample-update
       responses:
         '200':
           description: Success in updating a business object record
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrelloExample1'
+                $ref: '#/components/schemas/TrelloCardExample'
         '400':
           description: Bad request
           content:
@@ -354,14 +354,14 @@ paths:
         description: Row ID (or empty or _ for all row IDs)
         required: true
       tags:
-      - TrelloExample1
-  /rest/TrelloExample1:
+      - TrelloCardExample
+  /rest/TrelloCardExample:
     get:
-      summary: Search TrelloExample1 business object records or get contextualized
+      summary: Search TrelloCardExample business object records or get contextualized
         metadata
       security:
       - bearerAuth: []
-      operationId: obj-trelloexample1-search
+      operationId: obj-trellocardexample-search
       responses:
         '200':
           description: Success in searching business object records (or in getting
@@ -369,7 +369,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArrayOfTrelloExample1'
+                $ref: '#/components/schemas/ArrayOfTrelloCardExample'
         '401':
           description: Unauthorized
           content:
@@ -404,23 +404,23 @@ paths:
       - schema:
           type: string
         in: query
-        name: trelloEx1Name
+        name: trelloCardExName
         description: Search filter for Name
         required: false
       - schema:
           type: string
         in: query
-        name: trelloEx1Description
+        name: trelloCardExDescription
         description: Search filter for Description
         required: false
       - schema:
           type: string
         in: query
-        name: trelloEx1CardId
+        name: trelloCardExCardID
         description: Search filter for Trello card ID
         required: false
       tags:
-      - TrelloExample1
+      - TrelloCardExample
   /:
     get:
       summary: Get user session information
@@ -459,5 +459,5 @@ info:
   title: Trello
   version: '4.0'
 tags:
-- name: TrelloExample1
-  description: Trello example 1
+- name: TrelloCardExample
+  description: Trello card example
