@@ -72,7 +72,7 @@ public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 			return null;
 		} catch (APIException e) { // Prevents deletion if card creation fails
 			AppLog.error(getClass(), "postLoad", null, e, getGrant());
-			return Message.formatSimpleError("Card deletion error: " + e.getMessage());
+			return null;//Message.formatSimpleError("Card deletion error: " + e.getMessage());
 		}
 	}
 }

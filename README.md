@@ -64,7 +64,7 @@ Trello API client example
 `TrelloWebhook` external object definition
 ------------------------------------------
 
-Trello webhook:
+For this webhook to be registred by Trello, you need to make an API call:
 
 ```
 curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens/<token>/webhooks/ -d '{

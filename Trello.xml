@@ -283,7 +283,7 @@ There are 2 system parameters to configure:
 		<obe_name>TrelloWebhook</obe_name>
 		<obe_type>E</obe_type>
 		<obe_url/>
-		<obe_comment><![CDATA[Trello webhook:
+		<obe_comment><![CDATA[For this webhook to be registred by Trello, you need to make an API call:
 
 ```
 curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens/<token>/webhooks/ -d '{
