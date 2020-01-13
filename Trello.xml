@@ -8,11 +8,33 @@
 		<mdl_version>4.0</mdl_version>
 		<mdl_prefix/>
 		<mdl_url><![CDATA[https://www.simplicite.io/resources/modules/trello-examples-4.0.xml]]></mdl_url>
-		<mdl_lastupd>2020-01-11 00:07:51</mdl_lastupd>
-		<mdl_comment><![CDATA[Trello integration examples:
+		<mdl_lastupd>2020-01-13 16:06:35</mdl_lastupd>
+		<mdl_comment><![CDATA[### Introduction
+
+Trello integration examples:
 
 - A business object that synchronizes with Trello cards (using a webhook for incoming updates from Trello)
-- A Trello client external oject]]></mdl_comment>
+- A Trello client external object
+
+### Import
+
+To import this module:
+
+- Create a module named `Trello`
+- Set the settings as either:
+	- A simple URL reference: `https://www.simplicite.io/resources/modules/trello-examples-4.0.xml` (default)
+	- A reference to the GitHub project: `{ "type": "git", "origin": { "uri": "https://github.com/simplicitesoftware/module-trello.git" } }`
+
+- Click on the _Import module_ button
+
+### Configure
+
+There are 2 system parameters to configure:
+
+- The `TRELLO_CREDENTIALS` in which you must set your Trello API key, secret and token
+- The `TRELLO_CARDEX_SETTINGS` used by the above example business object in which you must set the **Board** ID and its default **List** ID that you want to interact with
+
+> **Note**: it is possible to ovveride these default parameters per user using corresponding user parameters.]]></mdl_comment>
 	</data>
 </object>
 <object>

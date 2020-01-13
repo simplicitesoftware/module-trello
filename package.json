@@ -1,8 +1,8 @@
 {
-    "date": "Sat Jan 11 00:07:51 CET 2020",
+    "date": "Mon Jan 13 16:06:35 CET 2020",
     "name": "Trello",
     "format": "xml",
-    "description": "Trello integration examples:\n\n- A business object that synchronizes with Trello cards (using a webhook for incoming updates from Trello)\n- A Trello client external oject",
+    "description": "### Introduction\n\nTrello integration examples:\n\n- A business object that synchronizes with Trello cards (using a webhook for incoming updates from Trello)\n- A Trello client external object\n\n### Import\n\nTo import this module:\n\n- Create a module named `Trello`\n- Set the settings as either:\n\t- A simple URL reference: `https://www.simplicite.io/resources/modules/trello-examples-4.0.xml` (default)\n\t- A reference to the GitHub project: `{ \"type\": \"git\", \"origin\": { \"uri\": \"https://github.com/simplicitesoftware/module-trello.git\" } }`\n\n- Click on the _Import module_ button\n\n### Configure\n\nThere are 2 system parameters to configure:\n\n- The `TRELLO_CREDENTIALS` in which you must set your Trello API key, secret and token\n- The `TRELLO_CARDEX_SETTINGS` used by the above example business object in which you must set the **Board** ID and its default **List** ID that you want to interact with\n\n> **Note**: it is possible to ovveride these default parameters per user using corresponding user parameters.",
     "files": ["Trello.xml"],
     "repository": {},
     "version": "4.0",
