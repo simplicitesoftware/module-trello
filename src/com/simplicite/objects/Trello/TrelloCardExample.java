@@ -3,8 +3,11 @@ package com.simplicite.objects.Trello;
 import org.json.JSONObject;
 
 import com.simplicite.util.AppLog;
+import com.simplicite.util.Globals;
 import com.simplicite.util.Message;
+import com.simplicite.util.Tool;
 import com.simplicite.util.exceptions.APIException;
+import com.simplicite.util.tools.HTMLTool;
 import com.simplicite.util.tools.TrelloTool;
 
 /**
@@ -21,9 +24,21 @@ public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 		AppLog.info(getClass(), "postLoad", "Instance: " + getInstanceName(), getGrant());
 		if (!getInstanceName().startsWith("webhook_")) {
 			tt = new TrelloTool(getGrant());
+			//tt.setDebug(true);
 			AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
 			settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
 			AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
+
+			String contextURL = getGrant().getContextURL();
+			if (!Tool.isEmpty(contextURL)) {
+				String webhookURL = contextURL + HTMLTool.getPublicExternalObjectURL("TrelloWebhook");
+				try {
+					String webhookId = tt.registerWebhook(settings.getString("boardId"), webhookURL, "Webhook for " + Globals.getPlatformName());
+					AppLog.info(getClass(), "postLoad", "Registered webhook: " + webhookId, getGrant());
+				} catch (APIException e) {
+					AppLog.error(getClass(), "postLoad", "Unable to register the webhook: " + webhookURL, e, getGrant());
+				}
+			}
 		}
 	}
 

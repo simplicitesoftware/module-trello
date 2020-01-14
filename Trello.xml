@@ -292,6 +292,12 @@ curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens
   "idModel":"<board ID>",
   "description": "Demo webhook"
 }'
+```
+
+**Note**: To list existing webhooks:
+
+```curl
+curl -s https://api.trello.com/1/tokens/<token>/webhooks?key=<key>
 ```]]></obe_comment>
 		<obe_help/>
 		<obe_class/>
