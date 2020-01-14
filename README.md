@@ -41,7 +41,15 @@ There are 2 system parameters to configure:
 `TrelloCardExample` business object definition
 ----------------------------------------------
 
-Trello example object 1
+Trello card example:
+
+- On record creation it creates a Trello card and stores its ID
+- On record update it updates the Trello card corresponding to the stored ID
+- On record deletion it deletes the Trello card corresponding to the stored ID
+
+This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system parameter.
+
+**NOTE**: this object registers (creates or updates) a Trello webhook when loading
 
 ### Fields
 
@@ -55,10 +63,13 @@ Trello example object 1
 
 No custom action
 
-`TrelloAPIClientExample` external object definition
----------------------------------------------------
+`TrelloClientExample` external object definition
+------------------------------------------------
 
-Trello API client example
+Trello client example:
+
+- From a given board ID it retreives the board's lists
+- For each lists it retreives the list's cards
 
 
 `TrelloWebhook` external object definition

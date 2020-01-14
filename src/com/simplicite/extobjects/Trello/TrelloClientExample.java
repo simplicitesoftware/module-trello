@@ -8,9 +8,9 @@ import com.simplicite.util.tools.Parameters;
 import com.simplicite.util.tools.TrelloTool;
 
 /**
- * Trello API example
+ * Trello client example
  */
-public class TrelloAPIClientExample extends com.simplicite.util.ExternalObject {
+public class TrelloClientExample extends com.simplicite.util.ExternalObject {
 	private static final long serialVersionUID = 1L;
 
 	public static final String BOARD_ID = "SFldG59G";
