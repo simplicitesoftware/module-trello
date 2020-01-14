@@ -75,10 +75,13 @@ curl -X POST -H "Content-Type: application/json" https://api.trello.com/1/tokens
 }'
 ```
 
-**Note**: To list existing webhooks:
+To list existing webhooks:
 
 ```curl
 curl -s https://api.trello.com/1/tokens/<token>/webhooks?key=<key>
 ```
+
+**NOTE**: This is done **automatically** by the `TrelloCardExample` business object.
+
 
 
