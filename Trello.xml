@@ -125,6 +125,7 @@ There are 2 system parameters to configure:
 		<fld_more>1</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_tray/>
 		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist/>
@@ -161,6 +162,7 @@ There are 2 system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_tray/>
 		<fld_type>13</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist/>
@@ -197,6 +199,7 @@ There are 2 system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_tray/>
 		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_enumlist/>
@@ -257,7 +260,7 @@ There are 2 system parameters to configure:
 		<obd_name>TrelloDomain</obd_name>
 		<obd_comment><![CDATA[Trello examples domain]]></obd_comment>
 		<obd_type>D</obd_type>
-		<obd_view_id.viw_name/>
+		<obd_view_id.viw_name>TrelloHome</obd_view_id.viw_name>
 		<obd_nohome>0</obd_nohome>
 		<obd_icon>trello</obd_icon>
 		<obd_order>82000</obd_order>
