@@ -5,30 +5,29 @@ import java.util.List;
 import org.json.JSONObject;
 
 import com.simplicite.util.AppLog;
-import com.simplicite.util.tools.BusinessObjectTool;
 import com.simplicite.util.Grant;
 import com.simplicite.util.ObjectDB;
-import com.simplicite.util.Tool;
-import com.simplicite.util.tools.Parameters;
 import com.simplicite.util.exceptions.HTTPException;
+import com.simplicite.util.tools.BusinessObjectTool;
+import com.simplicite.util.tools.Parameters;
 
 /**
- * Trello webhook
+ * Trello webhook example
  */
 public class TrelloWebhook extends com.simplicite.webapp.services.RESTServiceExternalObject {
 	private static final long serialVersionUID = 1L;
-	
-	private static final JSONObject OK = new JSONObject().put("result", "ok");
-	
-    @Override
-    public Object head(Parameters params) throws HTTPException {
-        return OK;
-    }
 
-    @Override
-    public Object get(Parameters params) throws HTTPException {
-        return error(400, "Call me in POST please!");
-    }
+	private static final JSONObject OK = new JSONObject().put("result", "ok");
+
+	@Override
+	public Object head(Parameters params) throws HTTPException {
+		return OK;
+	}
+
+	@Override
+	public Object get(Parameters params) throws HTTPException {
+		return error(400, "Call me in POST please!");
+	}
 
 	private void updateCard(JSONObject card) {
 		try {
@@ -52,30 +51,30 @@ public class TrelloWebhook extends com.simplicite.webapp.services.RESTServiceExt
 		}
 	}
 
-    @Override
-    public Object post(Parameters params) throws HTTPException {
-        try {
-            JSONObject req = params.getJSONObject();
-            if (req != null) {
-            	AppLog.info(getClass(), "post", req.toString(2), getGrant());
-            	if (req.has("action")) {
-            		JSONObject action = req.getJSONObject("action");
-            		String type = action.optString("type");
-            		if ("updateCard".equals(type)) {
-            			if (action.has("data")) {
-            				JSONObject data = action.getJSONObject("data");
-            				if (data.has("card")) {
-            					updateCard(data.getJSONObject("card"));
-            				}
-            			}
-            		}
-            	}
-                return OK;
-            } else {
-                return error(400, "Call me with a JSON body please!");
-            }
-        } catch (Exception e) {
-            return error(e);
-        }
-    }
+	@Override
+	public Object post(Parameters params) throws HTTPException {
+		try {
+			JSONObject req = params.getJSONObject();
+			if (req != null) {
+				AppLog.info(getClass(), "post", req.toString(2), getGrant());
+				if (req.has("action")) {
+					JSONObject action = req.getJSONObject("action");
+					String type = action.optString("type");
+					if ("updateCard".equals(type)) {
+						if (action.has("data")) {
+							JSONObject data = action.getJSONObject("data");
+							if (data.has("card")) {
+								updateCard(data.getJSONObject("card"));
+							}
+						}
+					}
+				}
+				return OK;
+			} else {
+				return error(400, "Call me with a JSON body please!");
+			}
+		} catch (Exception e) {
+			return error(e);
+		}
+	}
 }
