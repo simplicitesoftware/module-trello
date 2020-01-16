@@ -13,7 +13,7 @@
 
 ### Introduction
 
-Trello integration examples:
+**Trello** integration examples:
 
 - A business object that synchronizes with Trello cards (using a webhook for incoming updates from Trello)
 - A Trello client external object
@@ -23,9 +23,16 @@ Trello integration examples:
 To import this module:
 
 - Create a module named `Trello`
-- Set the settings as either:
-	- A simple URL reference: `https://www.simplicite.io/resources/modules/trello-examples-4.0.xml` (default)
-	- A reference to the GitHub project: `{ "type": "git", "origin": { "uri": "https://github.com/simplicitesoftware/module-trello.git" } }`
+- Set the settings as:
+
+```json
+{
+	"type": "git",
+	"origin": {
+		"uri": "https://github.com/simplicitesoftware/module-trello.git"
+	}
+}
+```
 
 - Click on the _Import module_ button
 
