@@ -275,7 +275,7 @@ There are 2 system parameters to configure:
 		<obd_view_id.viw_name>TrelloHome</obd_view_id.viw_name>
 		<obd_nohome>0</obd_nohome>
 		<obd_icon>trello</obd_icon>
-		<obd_order>82000</obd_order>
+		<obd_order>84000</obd_order>
 		<obd_domain_id.obd_name/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -581,7 +581,7 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<map_domain_id.obd_name>TrelloDomain</map_domain_id.obd_name>
 		<map_object_id.obj_name>TrelloClientExample</map_object_id.obj_name>
 		<map_process_id.pcs_name/>
-		<map_order>82000</map_order>
+		<map_order>84010</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -589,7 +589,7 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<map_domain_id.obd_name>TrelloDomain</map_domain_id.obd_name>
 		<map_object_id.obj_name>TrelloCardExample</map_object_id.obj_name>
 		<map_process_id.pcs_name/>
-		<map_order>82010</map_order>
+		<map_order>84020</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -645,6 +645,42 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<res_file/>
 		<res_file_compiled/>
 		<res_image>resources/Disposition/default/trello.png</res_image>
+		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
+	</data>
+	<data>
+		<res_object>
+			<object>
+				<name>Disposition</name>
+				<data>
+					<dis_code>default</dis_code>
+				</data>
+			</object>
+		</res_object>
+		<res_type>IMG</res_type>
+		<res_lang>ANY</res_lang>
+		<res_code>trello-module</res_code>
+		<res_cached>0</res_cached>
+		<res_file/>
+		<res_file_compiled/>
+		<res_image>resources/Disposition/default/trello-module.png</res_image>
+		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
+	</data>
+	<data>
+		<res_object>
+			<object>
+				<name>Disposition</name>
+				<data>
+					<dis_code>default</dis_code>
+				</data>
+			</object>
+		</res_object>
+		<res_type>IMG</res_type>
+		<res_lang>ANY</res_lang>
+		<res_code>trello-module-full</res_code>
+		<res_cached>0</res_cached>
+		<res_file/>
+		<res_file_compiled/>
+		<res_image>resources/Disposition/default/trello-module-full.png</res_image>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 </object>
