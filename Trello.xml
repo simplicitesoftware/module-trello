@@ -13,7 +13,7 @@
 		"uri": "https://github.com/simplicitesoftware/module-trello.git"
 	}
 }]]></mdl_url>
-		<mdl_lastupd>2020-01-16 12:44:15</mdl_lastupd>
+		<mdl_lastupd>2020-02-05 23:47:04</mdl_lastupd>
 		<mdl_comment><![CDATA[### Introduction
 
 **Trello** integration examples:
@@ -41,10 +41,9 @@ To import this module:
 
 ### Configure
 
-There are 2 system parameters to configure:
+There is 1 system parameters to configure:
 
-- The `TRELLO_CREDENTIALS` in which you must set your Trello API key, secret and token
-- The `TRELLO_CARDEX_SETTINGS` used by the above example business object in which you must set the **Board** ID and its default **List** ID that you want to interact with
+- The `TRELLO_SERVICE` in which you must set your Trello API key, secret, token, the target **Board** ID and its default **List** ID that you want to interact with
 
 > **Note**: it is possible to ovveride these default parameters per user using corresponding user parameters.]]></mdl_comment>
 	</data>

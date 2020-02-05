@@ -38,10 +38,9 @@ To import this module:
 
 ### Configure
 
-There are 2 system parameters to configure:
+There is 1 system parameters to configure:
 
-- The `TRELLO_CREDENTIALS` in which you must set your Trello API key, secret and token
-- The `TRELLO_CARDEX_SETTINGS` used by the above example business object in which you must set the **Board** ID and its default **List** ID that you want to interact with
+- The `TRELLO_SERVICE` in which you must set your Trello API key, secret, token, the target **Board** ID and its default **List** ID that you want to interact with
 
 > **Note**: it is possible to ovveride these default parameters per user using corresponding user parameters.
 
