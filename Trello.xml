@@ -50,31 +50,6 @@ There are 2 system parameters to configure:
 	</data>
 </object>
 <object>
-	<name>SystemParam</name>
-	<action>upsert</action>
-	<data>
-		<sys_code>TRELLO_CARDEX_SETTINGS</sys_code>
-		<sys_value><![CDATA[{
-	"boardId": "_your_board_id_",
-	"defaultListId": "_your_default_board_list_id_"
-}]]></sys_value>
-		<sys_type>PRV</sys_type>
-		<sys_desc><![CDATA[Trello example object 1 settings]]></sys_desc>
-		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
-	</data>
-	<data>
-		<sys_code>TRELLO_CREDENTIALS</sys_code>
-		<sys_value><![CDATA[{
-	"key": "_your_trello_api_key_",
-	"token": "_your_trello_access_token_",
-	"secret": "_your_trelo_api_secret_"
-}]]></sys_value>
-		<sys_type>PRV</sys_type>
-		<sys_desc><![CDATA[Trello API credentials]]></sys_desc>
-		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
-	</data>
-</object>
-<object>
 	<name>View</name>
 	<action>upsert</action>
 	<data>

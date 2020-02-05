@@ -17,23 +17,20 @@ public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 	private static final long serialVersionUID = 1L;
 
 	private TrelloTool tt = null;
-	private JSONObject settings = null;
 
 	@Override
 	public void postLoad() {
 		AppLog.info(getClass(), "postLoad", "Instance: " + getInstanceName(), getGrant());
 		if (!getInstanceName().startsWith("webhook_")) {
 			tt = new TrelloTool(getGrant());
-			//tt.setDebug(true);
+			tt.setDebug(true);
 			AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
-			settings = getGrant().getJSONObjectParameter("TRELLO_CARDEX_SETTINGS");
-			AppLog.info(getClass(), "postLoad", "Settings: " + settings.toString(2), getGrant());
 
 			String contextURL = getGrant().getContextURL();
 			if (!Tool.isEmpty(contextURL)) {
 				String webhookURL = contextURL + HTMLTool.getPublicExternalObjectURL("TrelloWebhook");
 				try {
-					String webhookId = tt.registerWebhook(settings.getString("boardId"), webhookURL, "Webhook for " + Globals.getPlatformName());
+					String webhookId = tt.registerWebhook(webhookURL, "Webhook for " + Globals.getPlatformName());
 					AppLog.info(getClass(), "postLoad", "Registered webhook: " + webhookId, getGrant());
 				} catch (APIException e) {
 					AppLog.error(getClass(), "postLoad", "Unable to register the webhook: " + webhookURL, e, getGrant());
@@ -49,7 +46,7 @@ public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 			JSONObject card = new JSONObject()
 				.put("name", getFieldValue("trelloCardExName"))
 				.put("desc", getFieldValue("trelloCardExDescription"));
-			card = tt.addCard(settings.getString("defaultListId"), card);
+			card = tt.addCard(card);
 			AppLog.info(getClass(), "preCreate", card.toString(2), getGrant());
 			setFieldValue("trelloCardExCardId", card.getString("id"));
 
