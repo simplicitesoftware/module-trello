@@ -16,33 +16,39 @@ import com.simplicite.util.tools.TrelloTool;
 public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 	private static final long serialVersionUID = 1L;
 
-	private TrelloTool tt = null;
+	private transient TrelloTool tt = null;
+	private void initTrelloTool() {
+		if (tt == null)
+			tt = new TrelloTool(getGrant());
+	}
+	
+	private boolean isWebhookInstance() {
+		return getInstanceName().startsWith("webhook_");
+	}
 
 	@Override
 	public void postLoad() {
 		AppLog.info(getClass(), "postLoad", "Instance: " + getInstanceName(), getGrant());
-		if (!getInstanceName().startsWith("webhook_")) {
-			tt = new TrelloTool(getGrant());
-			tt.setDebug(true);
-			AppLog.info(getClass(), "postLoad", "Trello tool API key: " + tt.getKey(), getGrant());
-
-			String contextURL = getGrant().getContextURL();
-			if (!Tool.isEmpty(contextURL)) {
-				String webhookURL = contextURL + HTMLTool.getPublicExternalObjectURL("TrelloWebhook");
-				try {
+		if (!isWebhookInstance()) { // Don't register webhook form the instances used on the webhhok
+			try {
+				initTrelloTool();
+				String contextURL = getGrant().getContextURL();
+				if (!Tool.isEmpty(contextURL)) {
+					String webhookURL = contextURL + HTMLTool.getPublicExternalObjectURL("TrelloWebhook");
 					String webhookId = tt.registerWebhook(webhookURL, "Webhook for " + Globals.getPlatformName());
 					AppLog.info(getClass(), "postLoad", "Registered webhook: " + webhookId, getGrant());
-				} catch (APIException e) {
-					AppLog.error(getClass(), "postLoad", "Unable to register the webhook: " + webhookURL, e, getGrant());
 				}
+			} catch (APIException e) {
+				AppLog.error(getClass(), "postLoad", "Unable to register the webhook", e, getGrant());
 			}
 		}
 	}
 
 	@Override
 	public String preCreate() {
-		if (tt == null) return null;
+		if (isWebhookInstance()) return null; // Avoids infinite looping
 		try {
+			initTrelloTool();
 			JSONObject card = new JSONObject()
 				.put("name", getFieldValue("trelloCardExName"))
 				.put("desc", getFieldValue("trelloCardExDescription"));
@@ -59,8 +65,9 @@ public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 
 	@Override
 	public String preUpdate() {
-		if (tt == null) return null;
+		if (isWebhookInstance()) return null; // Avoids infinite looping
 		try {
+			initTrelloTool();
 			String id = getFieldValue("trelloCardExCardId");
 			JSONObject card = tt.getCard(id);
 
@@ -78,8 +85,9 @@ public class TrelloCardExample extends com.simplicite.util.ObjectDB {
 
 	@Override
 	public String preDelete() {
-		if (tt == null) return null;
+		if (isWebhookInstance()) return null; // Avoids infinite looping
 		try {
+			initTrelloTool();
 			tt.deleteCard(getFieldValue("trelloCardExCardId"));
 			return null;
 		} catch (APIException e) { // Prevents deletion if card creation fails
