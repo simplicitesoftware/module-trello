@@ -60,12 +60,10 @@ public class TrelloWebhook extends com.simplicite.webapp.services.RESTServiceExt
 				if (req.has("action")) {
 					JSONObject action = req.getJSONObject("action");
 					String type = action.optString("type");
-					if ("updateCard".equals(type)) {
-						if (action.has("data")) {
-							JSONObject data = action.getJSONObject("data");
-							if (data.has("card")) {
-								updateCard(data.getJSONObject("card"));
-							}
+					if ("updateCard".equals(type) && action.has("data")) {
+						JSONObject data = action.getJSONObject("data");
+						if (data.has("card")) {
+							updateCard(data.getJSONObject("card"));
 						}
 					}
 				}

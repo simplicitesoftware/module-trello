@@ -65,10 +65,6 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 | `trelloCardExDescription`                                    | text(1000000)                            |          | yes       |          | Card description                                                                 |
 | `trelloCardExCardId`                                         | char(50)                                 |          |           |          | Card ID                                                                          |
 
-### Custom actions
-
-No custom action
-
 `TrelloClientExample` external object definition
 ------------------------------------------------
 

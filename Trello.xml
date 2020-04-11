@@ -371,6 +371,8 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<obo_dashboard>1</obo_dashboard>
 		<obo_prefix/>
 		<obo_search_ts/>
+		<obo_minrows/>
+		<obo_maxrows/>
 	</data>
 </object>
 <object>
