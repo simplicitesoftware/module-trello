@@ -2,9 +2,9 @@
     "date": "Wed Feb 05 23:47:04 CET 2020",
     "name": "Trello",
     "format": "xml",
-    "description": "### Introduction\n\n**Trello** integration examples:\n\n- A business object that synchronizes with Trello cards (using a webhook for incoming updates from Trello)\n- A Trello client external object\n\n### Import\n\nTo import this module:\n\n- Create a module named `Trello`\n- Set the settings as:\n\n```json\n{\n\t\"type\": \"git\",\n\t\"origin\": {\n\t\t\"uri\": \"https://github.com/simplicitesoftware/module-trello.git\"\n\t}\n}\n```\n\n- Click on the _Import module_ button\n\n### Configure\n\nThere is 1 system parameters to configure:\n\n- The `TRELLO_SERVICE` in which you must set your Trello API key, secret, token, the target **Board** ID and its default **List** ID that you want to interact with\n\n> **Note**: it is possible to ovveride these default parameters per user using corresponding user parameters.",
+    "description": "[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=simplicite-modules-Trello&metric=alert_status)](https://sonarcloud.io/dashboard?id=simplicite-modules-Trello)\n\n### Introduction\n\n**Trello** integration examples:\n\n- A business object that synchronizes with Trello cards (using a webhook for incoming updates from Trello)\n- A Trello client external object\n\n### Import\n\nTo import this module:\n\n- Create a module named `Trello`\n- Set the settings as:\n\n```json\n{\n\t\"type\": \"git\",\n\t\"origin\": {\n\t\t\"uri\": \"https://github.com/simplicitesoftware/module-trello.git\"\n\t}\n}\n```\n\n- Click on the _Import module_ button\n\n### Configure\n\nThere is 1 system parameters to configure:\n\n- The `TRELLO_SERVICE` in which you must set your Trello API key, secret, token, the target **Board** ID and its default **List** ID that you want to interact with\n\n> **Note**: it is possible to ovveride these default parameters per user using corresponding user parameters.",
     "files": ["Trello.xml"],
     "repository": {"origin": {"uri": "https://github.com/simplicitesoftware/module-trello.git"}},
     "version": "4.0",
-    "dependencies": [{"Simplicite": "4.0"}]
+    "dependencies": {"Simplicite": "4.0"}
 }
