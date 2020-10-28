@@ -16,6 +16,11 @@ public class TrelloClientExample extends com.simplicite.webapp.web.ResponsiveExt
 	public static final String BOARD_ID = "SFldG59G";
 
 	@Override
+	public String getRenderStatement(Parameters params) {
+		return "void(0)";
+	}
+
+	@Override
 	public String content(Parameters params) {
 		try {
 			StringBuilder html = new StringBuilder();

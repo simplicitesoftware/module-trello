@@ -62,6 +62,7 @@ There is 1 system parameters to configure:
 		<viw_scope/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 		<viw_theme_id.thm_name>ThemeLight</viw_theme_id.thm_name>
+		<viw_lang/>
 	</data>
 </object>
 <object>
@@ -130,6 +131,7 @@ There is 1 system parameters to configure:
 		<fld_case/>
 		<fld_righttoleft>0</fld_righttoleft>
 		<fld_rendering/>
+		<fld_speech/>
 		<fld_calc/>
 		<fld_objlist/>
 		<fld_comment><![CDATA[Card ID]]></fld_comment>
@@ -166,6 +168,7 @@ There is 1 system parameters to configure:
 		<fld_case/>
 		<fld_righttoleft>0</fld_righttoleft>
 		<fld_rendering>MD</fld_rendering>
+		<fld_speech/>
 		<fld_calc/>
 		<fld_objlist/>
 		<fld_comment><![CDATA[Card description]]></fld_comment>
@@ -202,6 +205,7 @@ There is 1 system parameters to configure:
 		<fld_case/>
 		<fld_righttoleft>0</fld_righttoleft>
 		<fld_rendering/>
+		<fld_speech/>
 		<fld_calc/>
 		<fld_objlist/>
 		<fld_comment><![CDATA[Card name]]></fld_comment>
@@ -365,6 +369,8 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<obo_btn_merge>P</obo_btn_merge>
 		<obo_btn_save>1</obo_btn_save>
 		<obo_btn_saveclose>1</obo_btn_saveclose>
+		<obo_btn_savenew>1</obo_btn_savenew>
+		<obo_btn_savecopy>1</obo_btn_savecopy>
 		<obo_btn_close>1</obo_btn_close>
 		<obo_tray>1</obo_tray>
 		<obo_dashboard>1</obo_dashboard>
