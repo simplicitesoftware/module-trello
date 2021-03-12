@@ -61,8 +61,8 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 
 ### Fields
 
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      | 
-| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------- | -------- | -------------------------------------------------------------------------------- |
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
 | `trelloCardExName`                                           | char(100)                                | yes*     | yes       |          | Card name                                                                        |
 | `trelloCardExDescription`                                    | text(1000000)                            |          | yes       |          | Card description                                                                 |
 | `trelloCardExCardId`                                         | char(50)                                 |          |           |          | Card ID                                                                          |
@@ -97,6 +97,5 @@ curl -s https://api.trello.com/1/tokens/<token>/webhooks?key=<key>
 ```
 
 **NOTE**: This is done **automatically** by the `TrelloCardExample` business object.
-
 
 
