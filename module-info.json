@@ -3,7 +3,7 @@
     "name": "Trello",
     "format": "xml",
     "files": ["Trello.xml"],
-    "repository": {},
+    "repository": {"origin": {"uri": "https://github.com/simplicitesoftware/module-trello.git"}},
     "version": "5",
     "platform": "5.2.0-alpha"
 }
