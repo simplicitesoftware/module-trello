@@ -13,7 +13,7 @@
 		"uri": "https://github.com/simplicitesoftware/module-trello.git"
 	}
 }]]></mdl_url>
-		<mdl_lastupd>2020-02-05 23:47:04</mdl_lastupd>
+		<mdl_type>T</mdl_type>
 		<mdl_comment><![CDATA[[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=simplicite-modules-Trello&metric=alert_status)](https://sonarcloud.io/dashboard?id=simplicite-modules-Trello)
 
 ### Introduction
@@ -310,6 +310,7 @@ curl -s https://api.trello.com/1/tokens/<token>/webhooks?key=<key>
 	<data>
 		<obo_name>TrelloCardExample</obo_name>
 		<obo_dbtable>trello_cardexemple</obo_dbtable>
+		<obo_role>OBJ</obo_role>
 		<obo_class/>
 		<obo_script_id>src/com/simplicite/objects/Trello/TrelloCardExample.java</obo_script_id>
 		<obo_usets>1</obo_usets>
@@ -627,7 +628,6 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<res_code>trello</res_code>
 		<res_cached>0</res_cached>
 		<res_file/>
-		<res_file_compiled/>
 		<res_image>resources/Disposition/default/trello.png</res_image>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -645,7 +645,6 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<res_code>trello-module</res_code>
 		<res_cached>0</res_cached>
 		<res_file/>
-		<res_file_compiled/>
 		<res_image>resources/Disposition/default/trello-module.svg</res_image>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -663,7 +662,6 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<res_code>trello-module-screenshot</res_code>
 		<res_cached>0</res_cached>
 		<res_file/>
-		<res_file_compiled/>
 		<res_image>resources/Disposition/default/trello-module-screenshot.png</res_image>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
