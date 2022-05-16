@@ -6,7 +6,7 @@
 	<data>
 		<mdl_name>Trello</mdl_name>
 		<mdl_version>5</mdl_version>
-		<mdl_prefix/>
+		<mdl_prefix>trello</mdl_prefix>
 		<mdl_url><![CDATA[{
 	"type": "git",
 	"origin": {
@@ -114,7 +114,7 @@ There is 1 system parameters to configure:
 		<fld_more>1</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_tray>0</fld_tray>
+		<fld_tray/>
 		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_list_id.lov_name/>
@@ -151,7 +151,7 @@ There is 1 system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_tray>0</fld_tray>
+		<fld_tray/>
 		<fld_type>13</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_list_id.lov_name/>
@@ -188,7 +188,7 @@ There is 1 system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
-		<fld_tray>0</fld_tray>
+		<fld_tray/>
 		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_list_id.lov_name/>
@@ -218,8 +218,7 @@ There is 1 system parameters to configure:
 	<action>upsert</action>
 	<data>
 		<tpl_name>TrelloExample1</tpl_name>
-		<tpl_ui><![CDATA[<div class="area" data-area="1"></div>
-]]></tpl_ui>
+		<tpl_ui><![CDATA[<div class="area" data-area="1"></div>]]></tpl_ui>
 		<tpl_min/>
 		<tpl_image/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
@@ -236,8 +235,7 @@ There is 1 system parameters to configure:
   <div class="field" data-field="trelloCardExName"></div>
   <div class="field" data-field="trelloCardExDescription"></div>
   <div class="field" data-field="trelloCardExCardId"></div>
-</div>
-]]></ofa_ui>
+</div>]]></ofa_ui>
 		<ofa_icon/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -250,7 +248,7 @@ There is 1 system parameters to configure:
 		<obd_comment><![CDATA[Trello examples domain]]></obd_comment>
 		<obd_type>D</obd_type>
 		<obd_view_id.viw_name>TrelloHome</obd_view_id.viw_name>
-		<obd_nohome>0</obd_nohome>
+		<obd_nohome>1</obd_nohome>
 		<obd_icon>trello</obd_icon>
 		<obd_order>84000</obd_order>
 		<obd_domain_id.obd_name/>
@@ -295,8 +293,7 @@ To list existing webhooks:
 curl -s https://api.trello.com/1/tokens/<token>/webhooks?key=<key>
 ```
 
-**NOTE**: This is done **automatically** by the `TrelloCardExample` business object.
-]]></obe_comment>
+**NOTE**: This is done **automatically** by the `TrelloCardExample` business object.]]></obe_comment>
 		<obe_help/>
 		<obe_class/>
 		<obe_script_id>src/com/simplicite/extobjects/Trello/TrelloWebhook.java</obe_script_id>
