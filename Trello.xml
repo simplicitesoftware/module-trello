@@ -250,7 +250,7 @@ There is 1 system parameters to configure:
 		<obd_view_id.viw_name>TrelloHome</obd_view_id.viw_name>
 		<obd_nohome>1</obd_nohome>
 		<obd_icon>trello</obd_icon>
-		<obd_order>84000</obd_order>
+		<obd_order>62000</obd_order>
 		<obd_domain_id.obd_name/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -475,16 +475,16 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 	<name>Function</name>
 	<action>upsert</action>
 	<data>
-		<fct_name>Trello-D</fct_name>
-		<fct_object_id.obj_type>D</fct_object_id.obj_type>
-		<fct_object_id.obj_name>TrelloDomain</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
+		<fct_name>TRELLO_CARD_EXAMPLE_CRUD</fct_name>
+		<fct_object_id.obj_type>O</fct_object_id.obj_type>
+		<fct_object_id.obj_name>TrelloCardExample</fct_object_id.obj_name>
+		<fct_function>CMS</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
-		<fct_name>TrelloAPIClientExample-E</fct_name>
+		<fct_name>TRELLO_CLIENT_EXAMPLE_E</fct_name>
 		<fct_object_id.obj_type>E</fct_object_id.obj_type>
 		<fct_object_id.obj_name>TrelloClientExample</fct_object_id.obj_name>
 		<fct_function>L</fct_function>
@@ -493,10 +493,10 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
 	<data>
-		<fct_name>TrelloCardExample-CUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>TrelloCardExample</fct_object_id.obj_name>
-		<fct_function>CMS</fct_function>
+		<fct_name>TRELLO_DOMAIN_D</fct_name>
+		<fct_object_id.obj_type>D</fct_object_id.obj_type>
+		<fct_object_id.obj_name>TrelloDomain</fct_object_id.obj_name>
+		<fct_function>L</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
@@ -526,7 +526,7 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 	</data>
 	<data>
 		<grt_group_id.grp_name>TRELLO_USER</grt_group_id.grp_name>
-		<grt_function_id.fct_name>TrelloCardExample-CUD</grt_function_id.fct_name>
+		<grt_function_id.fct_name>TRELLO_CARD_EXAMPLE_CRUD</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>TrelloCardExample</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name/>
@@ -536,7 +536,7 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 	</data>
 	<data>
 		<grt_group_id.grp_name>TRELLO_USER</grt_group_id.grp_name>
-		<grt_function_id.fct_name>TrelloAPIClientExample-E</grt_function_id.fct_name>
+		<grt_function_id.fct_name>TRELLO_CLIENT_EXAMPLE_E</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>E</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>TrelloClientExample</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name/>
@@ -546,7 +546,7 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 	</data>
 	<data>
 		<grt_group_id.grp_name>TRELLO_USER</grt_group_id.grp_name>
-		<grt_function_id.fct_name>Trello-D</grt_function_id.fct_name>
+		<grt_function_id.fct_name>TRELLO_DOMAIN_D</grt_function_id.fct_name>
 		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
 		<grt_function_id.fct_object_id.obj_name>TrelloDomain</grt_function_id.fct_object_id.obj_name>
 		<grt_function_id.fct_action_id.act_name/>
@@ -562,7 +562,7 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<map_domain_id.obd_name>TrelloDomain</map_domain_id.obd_name>
 		<map_object_id.obj_name>TrelloClientExample</map_object_id.obj_name>
 		<map_process_id.pcs_name/>
-		<map_order>84010</map_order>
+		<map_order>62010</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
@@ -570,7 +570,7 @@ This object uses the settings stored in the `TRELLO_CARDEX_SETTINGS` system para
 		<map_domain_id.obd_name>TrelloDomain</map_domain_id.obd_name>
 		<map_object_id.obj_name>TrelloCardExample</map_object_id.obj_name>
 		<map_process_id.pcs_name/>
-		<map_order>84020</map_order>
+		<map_order>62020</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>Trello</row_module_id.mdl_name>
 	</data>
